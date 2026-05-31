@@ -1,1 +1,0 @@
-import{n as a,p as r}from"./index-CuZgVJG3.js";function s({children:i,delay:t=0,y:n=30,className:o,...e}){return a.jsx(r.div,{initial:{opacity:0,y:n},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:"-80px"},transition:{duration:.7,delay:t,ease:[.22,1,.36,1]},className:o,...e,children:i})}export{s as R};
