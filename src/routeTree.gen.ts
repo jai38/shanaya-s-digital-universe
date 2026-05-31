@@ -9,8 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SongsRouteImport } from './routes/songs'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as MusicRouteImport } from './routes/music'
+import { Route as MindRouteImport } from './routes/mind'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BeyondRouteImport } from './routes/beyond'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SongsRoute = SongsRouteImport.update({
+  id: '/songs',
+  path: '/songs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusicRoute = MusicRouteImport.update({
+  id: '/music',
+  path: '/music',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MindRoute = MindRouteImport.update({
+  id: '/mind',
+  path: '/mind',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeyondRoute = BeyondRouteImport.update({
+  id: '/beyond',
+  path: '/beyond',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +61,130 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/beyond': typeof BeyondRoute
+  '/contact': typeof ContactRoute
+  '/mind': typeof MindRoute
+  '/music': typeof MusicRoute
+  '/projects': typeof ProjectsRoute
+  '/songs': typeof SongsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/beyond': typeof BeyondRoute
+  '/contact': typeof ContactRoute
+  '/mind': typeof MindRoute
+  '/music': typeof MusicRoute
+  '/projects': typeof ProjectsRoute
+  '/songs': typeof SongsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/beyond': typeof BeyondRoute
+  '/contact': typeof ContactRoute
+  '/mind': typeof MindRoute
+  '/music': typeof MusicRoute
+  '/projects': typeof ProjectsRoute
+  '/songs': typeof SongsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/beyond'
+    | '/contact'
+    | '/mind'
+    | '/music'
+    | '/projects'
+    | '/songs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/beyond'
+    | '/contact'
+    | '/mind'
+    | '/music'
+    | '/projects'
+    | '/songs'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/beyond'
+    | '/contact'
+    | '/mind'
+    | '/music'
+    | '/projects'
+    | '/songs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BeyondRoute: typeof BeyondRoute
+  ContactRoute: typeof ContactRoute
+  MindRoute: typeof MindRoute
+  MusicRoute: typeof MusicRoute
+  ProjectsRoute: typeof ProjectsRoute
+  SongsRoute: typeof SongsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/songs': {
+      id: '/songs'
+      path: '/songs'
+      fullPath: '/songs'
+      preLoaderRoute: typeof SongsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/music': {
+      id: '/music'
+      path: '/music'
+      fullPath: '/music'
+      preLoaderRoute: typeof MusicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mind': {
+      id: '/mind'
+      path: '/mind'
+      fullPath: '/mind'
+      preLoaderRoute: typeof MindRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beyond': {
+      id: '/beyond'
+      path: '/beyond'
+      fullPath: '/beyond'
+      preLoaderRoute: typeof BeyondRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +197,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BeyondRoute: BeyondRoute,
+  ContactRoute: ContactRoute,
+  MindRoute: MindRoute,
+  MusicRoute: MusicRoute,
+  ProjectsRoute: ProjectsRoute,
+  SongsRoute: SongsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
