@@ -21,21 +21,24 @@ const panels = [
     n: "i",
     title: "Why sad songs comfort us",
     body: "A sad song isn't sadness amplified — it's sadness <em>recognised</em>. When the melody names what you couldn't, the lonely part of the feeling quietly leaves the room.",
-    accent: "magenta",
+    ring: "border-magenta/40",
+    glow: "bg-magenta",
     gradient: "from-magenta/40 via-magenta/10 to-transparent",
   },
   {
     n: "ii",
     title: "Why we replay certain songs",
     body: "Songs are emotional bookmarks. We don't just remember a track — we remember <em>who we were</em> when we first looped it. Replaying is time travel that doesn't ask permission.",
-    accent: "cyan",
+    ring: "border-cyan/40",
+    glow: "bg-cyan",
     gradient: "from-cyan/40 via-cyan/10 to-transparent",
   },
   {
     n: "iii",
     title: "How rhythm changes mood",
     body: "Before melody, before lyric, there is rhythm — and the body responds first. A slower pulse calms your breathing. A heavier beat re-shapes how you walk into a room.",
-    accent: "amber",
+    ring: "border-amber/40",
+    glow: "bg-amber",
     gradient: "from-amber/40 via-amber/10 to-transparent",
   },
 ];
@@ -59,10 +62,10 @@ function Panel({ p, i }: { p: typeof panels[number]; i: number }) {
                 <div
                   key={k}
                   style={{ inset: `${k * 8}%` }}
-                  className={`absolute rounded-full border border-${p.accent}/40 animate-spinslow`}
+                  className={`absolute rounded-full border ${p.ring} animate-spinslow`}
                 />
               ))}
-              <div className={`absolute inset-[40%] rounded-full bg-${p.accent} blur-2xl opacity-60`} />
+              <div className={`absolute inset-[40%] rounded-full ${p.glow} blur-2xl opacity-60`} />
               <div className="absolute inset-[44%] grid place-items-center rounded-full bg-background">
                 <span className="font-display text-3xl md:text-5xl text-gradient italic">{p.n}</span>
               </div>
