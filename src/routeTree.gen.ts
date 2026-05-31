@@ -12,6 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SongsRouteImport } from './routes/songs'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as MusicRouteImport } from './routes/music'
+import { Route as MindRouteImport } from './routes/mind'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BeyondRouteImport } from './routes/beyond'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -30,6 +33,21 @@ const MusicRoute = MusicRouteImport.update({
   path: '/music',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MindRoute = MindRouteImport.update({
+  id: '/mind',
+  path: '/mind',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeyondRoute = BeyondRouteImport.update({
+  id: '/beyond',
+  path: '/beyond',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -44,6 +62,9 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/beyond': typeof BeyondRoute
+  '/contact': typeof ContactRoute
+  '/mind': typeof MindRoute
   '/music': typeof MusicRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
@@ -51,6 +72,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/beyond': typeof BeyondRoute
+  '/contact': typeof ContactRoute
+  '/mind': typeof MindRoute
   '/music': typeof MusicRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
@@ -59,21 +83,52 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/beyond': typeof BeyondRoute
+  '/contact': typeof ContactRoute
+  '/mind': typeof MindRoute
   '/music': typeof MusicRoute
   '/projects': typeof ProjectsRoute
   '/songs': typeof SongsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/music' | '/projects' | '/songs'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/beyond'
+    | '/contact'
+    | '/mind'
+    | '/music'
+    | '/projects'
+    | '/songs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/music' | '/projects' | '/songs'
-  id: '__root__' | '/' | '/about' | '/music' | '/projects' | '/songs'
+  to:
+    | '/'
+    | '/about'
+    | '/beyond'
+    | '/contact'
+    | '/mind'
+    | '/music'
+    | '/projects'
+    | '/songs'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/beyond'
+    | '/contact'
+    | '/mind'
+    | '/music'
+    | '/projects'
+    | '/songs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BeyondRoute: typeof BeyondRoute
+  ContactRoute: typeof ContactRoute
+  MindRoute: typeof MindRoute
   MusicRoute: typeof MusicRoute
   ProjectsRoute: typeof ProjectsRoute
   SongsRoute: typeof SongsRoute
@@ -102,6 +157,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MusicRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mind': {
+      id: '/mind'
+      path: '/mind'
+      fullPath: '/mind'
+      preLoaderRoute: typeof MindRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beyond': {
+      id: '/beyond'
+      path: '/beyond'
+      fullPath: '/beyond'
+      preLoaderRoute: typeof BeyondRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -122,6 +198,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BeyondRoute: BeyondRoute,
+  ContactRoute: ContactRoute,
+  MindRoute: MindRoute,
   MusicRoute: MusicRoute,
   ProjectsRoute: ProjectsRoute,
   SongsRoute: SongsRoute,
