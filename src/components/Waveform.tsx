@@ -1,6 +1,6 @@
 export default function Waveform({ bars = 48 }: { bars?: number }) {
   return (
-    <div className="flex h-16 items-end gap-[3px]">
+    <div className="flex h-16 items-end gap-[3px] overflow-hidden">
       {Array.from({ length: bars }).map((_, i) => {
         const h = 20 + Math.abs(Math.sin(i * 0.6)) * 70 + (i % 5) * 4;
         return (

@@ -9,7 +9,9 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postbuild": "node -e \"const fs = require('fs'); if (fs.existsSync('dist/client/index.html')) { fs.copyFileSync('dist/client/index.html', 'dist/client/404.html'); console.log('Successfully copied index.html to 404.html'); }\"",
+    "deploy": "gh-pages -d dist/client -t"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -72,7 +74,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
-    "@lovable.dev/vite-tanstack-config": "^2.1.1",
+    "gh-pages": "^6.3.0",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",

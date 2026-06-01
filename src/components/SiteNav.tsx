@@ -32,7 +32,7 @@ export default function SiteNav() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <Link to="/" className="group flex items-center gap-2">
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="group flex items-center gap-2">
           <span className="relative inline-block h-3 w-3 rounded-full gradient-iridescent">
             <span className="absolute inset-0 animate-ping rounded-full gradient-iridescent opacity-60" />
           </span>
@@ -47,6 +47,7 @@ export default function SiteNav() {
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="rounded-full px-4 py-2 text-sm text-muted-foreground transition hover:text-foreground data-[status=active]:bg-secondary data-[status=active]:text-foreground"
             >
               {l.label}
@@ -56,6 +57,7 @@ export default function SiteNav() {
 
         <Link
           to="/contact"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="hidden rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition hover:opacity-90 lg:inline-block"
         >
           Let's collab →
@@ -85,7 +87,10 @@ export default function SiteNav() {
                     key={l.to}
                     to={l.to}
                     activeOptions={{ exact: l.to === "/" }}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setOpen(false);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                     className="rounded-2xl px-4 py-3 font-display text-2xl text-foreground/80 data-[status=active]:text-gradient"
                   >
                     {l.label}

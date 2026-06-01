@@ -65,7 +65,6 @@ export default function VinylScene() {
         <Orb position={[-2.8, 1.6, 1]} color="#22d3ee" />
         <Orb position={[2.6, -1.4, 0.5]} color="#ec4899" />
         <Orb position={[2.2, 1.8, -1]} color="#fbbf24" />
-        <Environment preset="night" />
       </Suspense>
     </Canvas>
   );

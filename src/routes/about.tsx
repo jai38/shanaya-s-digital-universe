@@ -74,7 +74,7 @@ function AboutPage() {
             <Reveal key={step.t} delay={i * 0.05}>
               <li className="relative">
                 <motion.span
-                  className="absolute -left-[33px] top-2 h-4 w-4 rounded-full gradient-iridescent md:-left-[49px]"
+                  className="absolute -left-[32px] top-2 h-4 w-4 rounded-full gradient-iridescent md:-left-[48px]"
                   whileInView={{ scale: [0, 1.4, 1] }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}

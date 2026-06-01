@@ -45,10 +45,10 @@ function MusicPage() {
       />
 
       <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8">
-        <div className="grid auto-rows-[180px] grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid auto-rows-auto grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:auto-rows-[180px]">
           {skills.map(({ icon: Icon, t, d, span }, i) => (
             <Reveal key={t} delay={i * 0.05} className={`${span}`}>
-              <div className="group grain-card relative h-full overflow-hidden rounded-3xl border border-border bg-card/40 p-6 transition hover:-translate-y-1 hover:border-magenta">
+              <div className="group grain-card relative min-h-[180px] h-full overflow-hidden rounded-3xl border border-border bg-card/40 p-6 transition hover:-translate-y-1 hover:border-magenta">
                 <Icon className="h-7 w-7 text-magenta transition group-hover:scale-110" />
                 <h3 className="font-display mt-4 text-2xl md:text-3xl">{t}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{d}</p>

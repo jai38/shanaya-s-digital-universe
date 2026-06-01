@@ -48,7 +48,7 @@ function ProjectsPage() {
               <p className="mt-4 max-w-2xl text-lg text-foreground/85">
                 Selected among <span className="text-gradient font-medium">25 curated participants from India</span> for an intensive workshop — a week of being challenged by people who think about music as a whole universe.
               </p>
-              <div className="mt-8 grid grid-cols-3 gap-4">
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {[
                   ["25", "from India"],
                   ["1", "of those 25"],

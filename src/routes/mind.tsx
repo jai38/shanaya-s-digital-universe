@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export const Route = createFileRoute("/mind")({
   head: () => ({
@@ -46,7 +46,16 @@ const panels = [
 function Panel({ p, i }: { p: typeof panels[number]; i: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const y = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [60, -60]);
   const rotate = useTransform(scrollYProgress, [0, 1], [-8, 8]);
 
   return (

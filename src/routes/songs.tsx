@@ -69,28 +69,28 @@ function SongsPage() {
                 </div>
 
                 {/* meta */}
-                <div>
+                <div className="min-w-0">
                   <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">{s.theme}</p>
-                  <h2 className="font-display mt-3 text-5xl leading-none tracking-tight md:text-7xl">
+                  <h2 className="font-display mt-3 text-4xl sm:text-5xl leading-none tracking-tight md:text-7xl break-words">
                     {s.title}
                   </h2>
-                  <p className="mt-6 max-w-md text-lg text-foreground/80">{s.blurb}</p>
+                  <p className="mt-6 max-w-md text-base sm:text-lg text-foreground/80">{s.blurb}</p>
 
-                  <blockquote className="mt-8 border-l-2 border-magenta pl-4 font-display text-xl italic text-foreground/90 md:text-2xl">
+                  <blockquote className="mt-8 border-l-2 border-magenta pl-4 font-display text-lg sm:text-xl italic text-foreground/90 md:text-2xl">
                     "{s.lyric}"
                   </blockquote>
 
                   <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <button className="group/btn inline-flex items-center gap-3 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:scale-105">
-                      <span className="grid h-6 w-6 place-items-center rounded-full bg-background text-foreground">
+                    <button className="group/btn inline-flex items-center gap-3 rounded-full bg-foreground px-4 sm:px-5 py-3 text-sm font-medium text-background transition hover:scale-105 shrink-0">
+                      <span className="grid h-6 w-6 place-items-center rounded-full bg-background text-foreground shrink-0">
                         <Play className="h-3 w-3 fill-current" />
                       </span>
                       Play preview
                     </button>
-                    <span className="font-mono text-xs text-muted-foreground">audio embed slot · drop Spotify / SoundCloud link</span>
+                    <span className="font-mono text-[10px] sm:text-xs text-muted-foreground truncate max-w-full">audio embed slot · drop Spotify link</span>
                   </div>
 
-                  <div className="mt-6 max-w-md">
+                  <div className="mt-6 max-w-md overflow-hidden">
                     <Waveform bars={56} />
                   </div>
                 </div>
